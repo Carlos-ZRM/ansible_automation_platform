@@ -7,9 +7,11 @@
       ansible.builtin.setup
     - name: Instalar paquetes para nodo ejecutor
       package:
+        name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+        state: present
+    - name: Instalar paquetes para nodo ejecutor
+      package:
         name: "{{ item }}"
         state: present
       loop:
-        - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
-        - terraform
         - ansible
