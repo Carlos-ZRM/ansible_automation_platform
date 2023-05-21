@@ -6,11 +6,11 @@
     - name: Abtener facts de los servidores
       ansible.builtin.setup
     - name: Instalar paquetes para nodo ejecutor
-      package:
-        name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+      dnf:
+        name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
         state: present
     - name: Instalar paquetes para nodo ejecutor
-      package:
+      dnf:
         name: "{{ item }}"
         state: present
       loop:
