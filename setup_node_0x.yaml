@@ -4,3 +4,12 @@
   tasks:
     - name: Abtener facts de los servidores
       ansible.builtin.setup:
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]
+    - name: Instalar paquetes para nodo ejecutor
+      packages: 
+        name: "{{ item }}"
+        state: present
+      loop:
+        - terraform
