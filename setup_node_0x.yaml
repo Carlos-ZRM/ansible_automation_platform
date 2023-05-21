@@ -5,7 +5,7 @@
   tasks:
     - name: Abtener facts de los servidores
       ansible.builtin.setup
-    - name: Instalar paquetes para nodo ejecutor
+    - name: Instalar paquetes para nodo ejecutor epel
       yum:
         name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
         state: present
