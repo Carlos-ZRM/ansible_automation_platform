@@ -4,15 +4,7 @@
   become: yes
   tasks:
     - name: Abtener facts de los servidores
-      ansible.builtin.setup:
-    - name: Registrar suscripcion de RHEL
-      community.general.redhat_subscription:
-        state: present
-        username: "{{ rhel_sub_username }}"
-        password: "{{ rhel_sub_password }}"
-        auto_attach: true
-    - name:
-      shell: subscription-manager repos --enable codeready-builder-for-rhel-"{{ ansible_distribution_major_version }}"-"{{ ansible_architecture }}"-rpms
+      ansible.builtin.setup
     - name: Instalar paquetes para nodo ejecutor
       package:
         name: "{{ item }}"
