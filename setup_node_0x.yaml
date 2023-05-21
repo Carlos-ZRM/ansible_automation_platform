@@ -9,7 +9,7 @@
       yum:
         name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
         state: present
-    - name: Instalar paquetes para nodo ejecutor
+    - name: Instalar paquetes para nodo ejecutor ansible
       dnf:
         name: "{{ item }}"
         state: present
