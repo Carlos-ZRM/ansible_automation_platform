@@ -6,7 +6,7 @@
     - name: Abtener facts de los servidores
       ansible.builtin.setup:
     - name: Registrar suscripcion de RHEL
-      redhat_subscription:
+      community.general.redhat_subscription:
         state: present
         username: "{{ rhel_sub_username }}"
         password: "{{ rhel_sub_password }}"
