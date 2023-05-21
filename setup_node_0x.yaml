@@ -1,2 +1,5 @@
-- name: Abtener facts de los servidores
+- name: Configurar Nodos 0x
+  hosts: all
+  tasks:
+    - name: Abtener facts de los servidores
       ansible.builtin.setup:
