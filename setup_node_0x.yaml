@@ -8,7 +8,7 @@
       debug:
         var: "{{ hostvars[inventory_hostname] }}"
     - name: Instalar paquetes para nodo ejecutor
-      packages:
+      package:
         name: "{{ item }}"
         state: present
       loop:
