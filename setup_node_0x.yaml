@@ -1,5 +1,6 @@
 - name: Configurar Nodos 0x
-  hosts: all
+  hosts: aws__node0x
+  gather_facts: true
   tasks:
     - name: Abtener facts de los servidores
       ansible.builtin.setup:
