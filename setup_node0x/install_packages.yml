@@ -3,6 +3,10 @@
   gather_facts: true
   become: yes
   tasks:
+    - name: Agregar llaves
+      rpm_key:
+        state: present
+        key: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
     - name: Instalar paquetes para nodo ejecutor epel
       yum:
         name: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm'
