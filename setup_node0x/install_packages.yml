@@ -12,8 +12,8 @@
         name: "{{ item.name }}"
         baseurl: "{{ item.baseurl }}" 
       loop:
-        - { name: epel, baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/ }
-        - { name: terraform, baseurl: https://rpm.releases.hashicorp.com/$release/hashicorp.repo }
+        - { name: epel, baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/" }
+        - { name: terraform, baseurl: "https://rpm.releases.hashicorp.com/$release/hashicorp.repo" }
 
     - name: Instalar paquetes para nodo ejecutor ansible
       dnf:
