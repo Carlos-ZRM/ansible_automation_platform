@@ -11,17 +11,18 @@
       yum_repository:
         name: "{{ item.name }}"
         description: "{{ item.name }}"
-        baseurl: "{{ item.baseurl }}" 
+        baseurl: "{{ item.baseurl }}"
+        state: "{{ item.state }}"
       loop:
-        - { name: epel, baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/" }
-        - { name: terraform, baseurl: "https://rpm.releases.hashicorp.com/$release/hashicorp.repo" }
+        - { name: epel, baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/" , state: abstent }
+        - { name: terraform, baseurl: "https://rpm.releases.hashicorp.com/$release/hashicorp.repo",  state: present }
 
     - name: Instalar paquetes para nodo ejecutor ansible
       dnf:
         name: "{{ item }}"
         state: present
       loop:
-        # - epel
-        # - ansible
+        - epel
+        - ansible
         - terraform
 
