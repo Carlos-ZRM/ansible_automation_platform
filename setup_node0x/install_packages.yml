@@ -21,7 +21,7 @@
         name: "{{ item }}"
         state: present
       loop:
-        - epel
-        - ansible
+        # - epel
+        # - ansible
         - terraform
 
