@@ -1,28 +1,29 @@
 - name: Configurar Nodos 0x
   hosts: aws__node0x
   gather_facts: true
-  become: yes
+  vars:
+    ansible_config_file: setup_node0x/ansible.cfg
+  become: true
   tasks:
     - name: Agregar llaves
-      rpm_key:
+      ansible.builtin.rpm_key:
         state: present
         key: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+
     - name: Agregar repositorios yum
-      yum_repository:
+      ansible.builtin.yum_repository:
         name: "{{ item.name }}"
         description: "{{ item.name }}"
         baseurl: "{{ item.baseurl }}"
         state: "{{ item.state }}"
       loop:
-        - { name: epel, baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/" , state: abstent }
-        - { name: terraform, baseurl: "https://rpm.releases.hashicorp.com/$release/hashicorp.repo",  state: present }
+        - { name: terraform, baseurl: "https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo", state: present }
 
     - name: Instalar paquetes para nodo ejecutor ansible
-      dnf:
+      ansible.builtin.dnf:
         name: "{{ item }}"
         state: present
       loop:
-        - epel
         - ansible
         - terraform
-
+        - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"

@@ -1,0 +1,24 @@
+---
+
+- name: "Crear directorio para proyecto de terraform {{ vm_name }}"
+  ansible.builtin.file:
+    path: "/var/terraform/{{ vm_name }}"
+    state: directory
+    owner: terraformuser
+    group: terraformgroup
+    mode: "0640"
+
+- name: "Creación de templates para terraform {{ vm_name }}"
+  ansible.builtin.template:
+    src: "templates/{{ item.src }}"
+    dest: "/var/terraform/{{ vm_name }}/{{ item.dest }}"
+    owner: terraformuser
+    group: terraformgroup
+    mode: '0644'
+  loop:
+    - {src: "cloud_init/user-data.j2", dest: "user-data" }
+    - {src: "terraform/provider.tf.j2", dest: "provider.tf" }
+    - {src: "terraform/versions.tf.j2", dest: "versions.tf" }
+    - {src: "terraform/variable.tf.j2", dest: "variable.tf" }
+    - {src: "terraform/data.tf.j2", dest: "data.tf" }
+    - {src: "terraform/vm_main.tf.j2", dest: "vm_main.tf" }

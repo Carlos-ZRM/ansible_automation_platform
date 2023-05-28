@@ -1,0 +1,22 @@
+
+variable "vpc_subnet_id_cd" {
+    type = string
+    default = "subnet-0b0fe3ff0750ddcef"
+}
+variable "instance_type" {
+    type = string
+    default = "t2.small"
+}
+variable "key_name" {
+    type = string
+    default="ansible_jboss"
+}
+
+variable "vpc_security_group_ids" {
+    type = list(string)
+    default = [
+        "sg-0cb3896c182c2bbb2",
+        "sg-063963311c2e46026"
+    ]
+
+}

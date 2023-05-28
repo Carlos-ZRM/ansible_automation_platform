@@ -1,0 +1,31 @@
+---
+
+- name: Configurar Nodos 0x
+  hosts: aws__node0x
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Configurar ambiente de nodos
+      tags:
+        - preconfig-terraform
+        - play-terraform
+      block:
+        - name: Configurar node terraform
+          ansible.builtin.import_tasks: tasks/preconfig-terraform.yml
+
+    - name: Crear maquinas con terraform
+      tags:
+        - run-terraform
+        - play-terraform
+      block:
+        - name: "Crear VM templates para terraform"
+          ansible.builtin.include_tasks: tasks/template-terraform.yml
+          vars:
+            vm_name: "{{ vm_item }}"
+          loop:
+            - "jboss_server"
+            - "podman_server02"
+          loop_control:
+            loop_var: vm_item
+
+#export ANSIBLE_CONFIG="setup_node0x/ansible.cfg"

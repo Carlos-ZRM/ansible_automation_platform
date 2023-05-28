@@ -1,0 +1,10 @@
+data "aws_ami" "rhel_86_x86" {
+  name_regex   = "RHEL-8.6.0_HVM*"
+  most_recent = true
+  owners      = ["309956199498"]
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+}

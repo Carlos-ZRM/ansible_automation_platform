@@ -1,0 +1,29 @@
+#cloud-config
+instance-id: rhel_cloudinit
+local-hostname: rhel.cloudinit
+manage_etc_hosts: false
+ssh_pwauth: True
+disable_root: True
+users:
+- default
+- name: cloudrhel
+  shell: /bin/bash
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  lock_passwd: False
+  ssh-authorized-keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC926z403PVlGppaeirsrT6sNLA6VbBDZRaks7Zj92M/ cloudrhel@2bcore.com 
+
+chpasswd:
+  list: |
+    cloud_rhel:rhelterraform
+  expire: False
+
+packages:
+  - git
+  - vim
+runcmd:
+  - dnf update -y
+  - dnf install cockpit -y
+  - dnf install cockpit-podman -y
+  - systemctl enable --now cockpit.socket ; systemctl start cockpit.service
+  - echo "Server is UP" > /tmp/system_up
