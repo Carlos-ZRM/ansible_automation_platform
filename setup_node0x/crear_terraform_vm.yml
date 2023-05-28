@@ -5,6 +5,10 @@
   gather_facts: true
   become: true
   tasks:
+    - name: debug
+      debug:
+        msg:
+          - "{{ inventory_dir }}"
     - name: Configurar ambiente de nodos
       tags:
         - preconfig-terraform
