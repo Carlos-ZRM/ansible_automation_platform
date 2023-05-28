@@ -1,15 +1,15 @@
 
-variable "vpc_subnet_id_cd" {
+variable "vpc_subnet_id" {
     type = string
-    default = "subnet-0b0fe3ff0750ddcef"
+    default = "{{ aws_vpc_subnet_id }}"
 }
 variable "instance_type" {
     type = string
-    default = "t2.small"
+    default = "{{ aws_instance_type }}"
 }
 variable "key_name" {
     type = string
-    default="ansible_jboss"
+    default="{{ aws_key_name }}"
 }
 
 variable "vpc_security_group_ids" {
