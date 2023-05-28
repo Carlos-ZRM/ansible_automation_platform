@@ -10,6 +10,12 @@
     group: terraformgroup
     ssh_key_file: setup_node0x/terraform_ed25519.pub
 
+- name: Agregar llave SSH
+  ansible.posix.authorized_key:
+    user: ec2-user
+    state: present
+    key: "{{ lookup('file', 'terraform_ed25519.pub') }}"
+
 - name: Crear directorio para entornos de terraform
   ansible.builtin.file:
     path: "/var/terraform"
