@@ -5,6 +5,9 @@
   gather_facts: true
   become: true
   tasks:
+    -name: shell debug
+      shell: env
+
     - name: debug
       debug:
         msg:
