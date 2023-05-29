@@ -1,8 +1,14 @@
 ---
 
 vm_name: jboss01
+
+terraform_project_dir: /var/terraform
 aws_region: us-east-1
 aws_instance_type: t2.small
 aws_key_name: ansible_jboss
 aws_vpc_subnet_id: subnet-0b0fe3ff0750ddcef
+
+aws_terraform_mv:
+  - jboss01
+
 

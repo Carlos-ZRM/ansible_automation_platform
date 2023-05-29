@@ -18,7 +18,7 @@
 
 - name: Crear directorio para entornos de terraform
   ansible.builtin.file:
-    path: "/var/terraform"
+    path: "{{ terraform_project_dir }}"
     state: directory
     owner: terraformuser
     group: terraformgroup

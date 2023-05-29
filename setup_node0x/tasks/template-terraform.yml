@@ -11,7 +11,7 @@
 - name: "Creación de templates para terraform {{ vm_name }}"
   ansible.builtin.template:
     src: "templates/{{ item.src }}"
-    dest: "/var/terraform/{{ vm_name }}/{{ item.dest }}"
+    dest: "{{ terraform_project_dir }}/{{ vm_name }}/{{ item.dest }}"
     owner: terraformuser
     group: terraformgroup
     mode: '0644'

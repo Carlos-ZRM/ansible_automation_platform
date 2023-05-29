@@ -1,6 +1,6 @@
 #cloud-config
-instance-id: rhel_cloudinit
-local-hostname: rhel.cloudinit
+instance-id: {{ vm_name }}_rhel_cloudinit
+local-hostname: {{ vm_name }}.rhel.cloudinit
 manage_etc_hosts: false
 ssh_pwauth: True
 disable_root: True

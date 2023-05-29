@@ -15,18 +15,29 @@
         - name: Configurar node terraform
           ansible.builtin.import_tasks: tasks/preconfig-terraform.yml
 
-    - name: Crear maquinas con terraform
+    - name: Crear templates de codigo para terraform
       tags:
-        - run-terraform
+        - template-terraform
         - play-terraform
       block:
-        - name: "Crear VM templates para terraform"
+        - name: "Crear templates de MV para terraform"
           ansible.builtin.include_tasks: tasks/template-terraform.yml
           vars:
             vm_name: "{{ vm_item }}"
-          loop:
-            - "jboss_server"
-            - "podman_server02"
+          loop: "{{ aws_terraform_mv }}"
+          loop_control:
+            loop_var: vm_item
+
+    - name: Desplegar infraestructura
+      tags:
+        - apply-terraform
+        - play-terraform
+      block:
+        - name: Crear MV con terraform
+          ansible.builtin.include_tasks: tasks/apply-terraform.yml
+          vars:
+            vm_name: "{{ vm_item }}"
+          loop: "{{ aws_terraform_mv }}"
           loop_control:
             loop_var: vm_item
 
