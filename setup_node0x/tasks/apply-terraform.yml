@@ -4,4 +4,4 @@
   cloud.terraform.terraform:
     project_path: '{{ terraform_project_dir }}/{{ vm_name }}'
     force_init: true
-    state: absent
+    state: "{{ vm_name_state }}"
