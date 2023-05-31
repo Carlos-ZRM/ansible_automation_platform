@@ -1,4 +1,10 @@
 ---
+- name: Instalar paquetes para nodo ejecutor ansible
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - podman
 
 - name: ejecutar servidor
   become: true
