@@ -42,8 +42,6 @@
     repo: "{{ git_url }}"
     dest: "{{ dir_www }}"
     force: true
-    separate_git_dir: "/home/{{ ansible_user }}/proyect.git"
-  ignore_errors: True
 
 - name: Eliminar archivos git
   ansible.builtin.file:

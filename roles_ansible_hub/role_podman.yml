@@ -21,4 +21,4 @@
         - play-podman
       block:
         - name: Podman run
-          ansible.builtin.import_tasks: tasks/config-podman.yml 
+          ansible.builtin.import_tasks: tasks/config-podman.yml
