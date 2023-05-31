@@ -1,5 +1,13 @@
 ---
 
+- name: Crear directorio temporal
+  ansible.builtin.file:
+    path: "{{ dir_www }}"
+    owner: root
+    group: root
+    mode: '0775'
+    state: directory
+
 
 - name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
   ansible.posix.acl:
@@ -21,7 +29,6 @@
 - name: Eliminar archivos anteriores
   ansible.builtin.file:
     path: "{{ dir_www }}/"
-    mode: '0644'
     state: absent
 
 - name: Cambiar permisos de directorio o crear direcotrio
