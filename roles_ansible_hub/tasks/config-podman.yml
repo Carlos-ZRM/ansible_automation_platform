@@ -2,4 +2,4 @@
 
 - name: ejecutar servidor
   become: true
-  shell: podman run --rm  --name {{ pod_name }} -d -p 8080:8080 -v "{{ dir_www }}/:{{ dir_www }}/:Z  "{{ pod_image }}"
+  shell: "podman run --rm --name {{ pod_name }} -d -p 8080:8080 -v {{ dir_www }}/:{{ dir_www }}/:Z {{ pod_image }}"
