@@ -7,7 +7,7 @@
   tasks:
     - name: Configurar ambiente del nodo
       tags:
-        - play-podman
+        - play-git
       block:
         - name: Git PULL
           ansible.builtin.import_tasks: tasks/git-pull.yml
@@ -18,3 +18,5 @@
   vars:
   roles:
     - redhat.rhel_system_roles.podman
+  tags:
+    - play-podman
