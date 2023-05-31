@@ -33,7 +33,8 @@
 - name: Git checkout
   ansible.builtin.git:
     repo: "{{ git_url }}"
-    dest: "/tmp{{ dir_www }}"
+    dest: "{{ dir_www }}"
+    separate_git_dir: "/home/{{ ansible_user }}/code.git"
     force: true
   become: true
   become_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
