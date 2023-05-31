@@ -35,6 +35,7 @@
     repo: "{{ git_url }}"
     dest: "{{ dir_www }}"
     force: true
+    separate_git_dir: "/home/{{ ansible_user }}/proyect.git"
 
 - name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
   ansible.posix.acl:

@@ -15,7 +15,6 @@
 - name: Crear servidor WEB
   hosts: "{{ ansible_apply_group | default('all') }}"
   become: true
-  vars:
   roles:
     - redhat.rhel_system_roles.podman
   tags:
