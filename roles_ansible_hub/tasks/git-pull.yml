@@ -3,8 +3,8 @@
 - name: Crear directorio temporal
   ansible.builtin.file:
     path: "{{ dir_www }}"
-    owner: root
-    group: root
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: '0775'
     state: directory
 
@@ -44,11 +44,9 @@
     force: true
     separate_git_dir: "/home/{{ ansible_user }}/proyect.git"
 
-- name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
-  ansible.posix.acl:
-    path: "{{ dir_www }}"
-    entity: "{{ ansible_user }}"
-    etype: user
-    permissions: rwx
-    state: present
-    recursive: true
+- name: Eliminar archivos git
+  ansible.builtin.file:
+    path: "{{ dir_www }}/.git"
+    state: absent
+
+

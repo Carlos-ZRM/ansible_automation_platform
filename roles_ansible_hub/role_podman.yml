@@ -15,7 +15,10 @@
 - name: Crear servidor WEB
   hosts: "{{ ansible_apply_group | default('all') }}"
   become: true
-  roles:
-    - redhat.rhel_system_roles.podman
-  tags:
-    - play-podman
+  tasks:
+    - name: Configurar ambiente del nodo
+      tags:
+        - play-podman
+      block:
+        - name: Podman run
+          ansible.builtin.import_tasks: tasks/config-podman.yml 
