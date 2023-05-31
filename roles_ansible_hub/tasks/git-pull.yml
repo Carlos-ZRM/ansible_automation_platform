@@ -13,6 +13,8 @@
 - name: Crear directorio temporal
   ansible.builtin.file:
     path: "/tmp{{ dir_www }}"
+    owner: "{{ crear_usuario | default('ansibleap-usuario') }}"
+    group: "{{ crear_grupo | default('ansibleap-usuario') }}"
     mode: '0764'
     state: directory
 
