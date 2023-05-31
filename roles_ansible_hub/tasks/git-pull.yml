@@ -3,8 +3,8 @@
 
 - name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
   ansible.posix.acl:
-    path: "/var/www"
-    entity: "{{ dir_www }}/"
+    path: "{{ dir_www }}"
+    entity: "{{ ansible_user }}"
     etype: user
     permissions: rwx
     state: present
@@ -30,3 +30,4 @@
     force: true
   become: true
   become_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
+
