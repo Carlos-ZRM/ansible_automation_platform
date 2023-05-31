@@ -1,7 +1,7 @@
 ---
 - name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
   ansible.posix.acl:
-    path: "{{ dir_www }}"
+    path: "/var/www"
     entity: "{{ ansible_user }}"
     etype: user
     permissions: rwx
@@ -10,7 +10,7 @@
 
 - name: "Agregar reglas de grupo acl al directorio {{ dir_www}}"
   ansible.posix.acl:
-    path: "{{ dir_www }}"
+    path: "/var/www"
     entity: "{{ ansible_user }}"
     etype: group
     permissions: rwx
