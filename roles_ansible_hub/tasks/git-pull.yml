@@ -10,13 +10,13 @@
     state: present
     recursive: true
   
-- name: Crear directorio temporal
-  ansible.builtin.file:
-    path: "/tmp{{ dir_www }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: '0764'
-    state: directory
+# - name: Crear directorio temporal
+#   ansible.builtin.file:
+#     path: "/tmp{{ dir_www }}"
+#     owner: "{{ ansible_user }}"
+#     group: "{{ ansible_user }}"
+#     mode: '0764'
+#     state: directory
 
 - name: Eliminar archivos anteriores
   ansible.builtin.file:
@@ -34,8 +34,5 @@
   ansible.builtin.git:
     repo: "{{ git_url }}"
     dest: "{{ dir_www }}"
-    separate_git_dir: "/home/{{ ansible_user }}/code.git"
     force: true
-  become: true
-  become_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
 
