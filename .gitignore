@@ -1,2 +1,4 @@
 **/terraform_ed25519
 .vscode/
+facts_cache/
+roles_ansible_hub/env/local/group_vars/httpd-podman/rhn-creds.yml

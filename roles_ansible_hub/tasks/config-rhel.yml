@@ -1,0 +1,17 @@
+---
+
+- name: "Configurar hostname"
+  become: true
+  ansible.builtin.hostname:
+    name: "{{ tags['name'] | default('servidor.ansible.ap') }}"
+
+- name: Crear grupo "{{ crear_grupo | default('ansibleap-usuario') }}"
+  ansible.builtin.group:
+    name: "{{ crear_grupo | default('ansibleap-usuario') }}"
+    state: present
+
+- name: Crear usuario "{{ crear_usuario | default('ansibleap-usuario') }}"
+  ansible.builtin.user:
+    name: "{{ crear_usuario | default('ansibleap-usuario') }}"
+    group: "{{ crear_grupo | default('ansibleap-usuario') }}"
+    ssh_key_file: roles_ansible_hub/id_ed25519.pub
