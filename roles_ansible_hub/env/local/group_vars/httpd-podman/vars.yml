@@ -19,8 +19,6 @@ podman_firewall:
 
 podman_kube_specs:
   - state: "{{ pod_state }}"
-    run_as_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
-    run_as_group: "{{ crear_grupo | default('ansibleap-usuario')  }}"
     kube_file_content:
       apiVersion: v1
       kind: Pod
