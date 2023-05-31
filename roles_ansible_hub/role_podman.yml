@@ -1,0 +1,20 @@
+---
+
+- name: Configurar Nodos
+  hosts: "{{ ansible_apply_group | default('all') }}"
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Configurar ambiente del nodo
+      tags:
+        - play-podman
+      block:
+        - name: Git PULL
+          ansible.builtin.import_tasks: tasks/git-pull.yml
+
+- name: Crear servidor WEB
+  hosts: "{{ ansible_apply_group | default('all') }}"
+  become: true
+  vars:
+  roles:
+    - redhat.rhel_system_roles.podman

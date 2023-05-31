@@ -1,0 +1,24 @@
+---
+- name: Eliminar archivos anteriores
+  ansible.builtin.file:
+    path: "{{ dir_www }}/"
+    owner: "{{ crear_usuario | default('ansibleap-usuario') }}"
+    group: "{{ crear_grupo | default('ansibleap-usuario') }}"
+    mode: '0644'
+    state: absent
+
+- name: Cambiar permisos de directorio o crear direcotrio
+  ansible.builtin.file:
+    path: "{{ dir_www }}"
+    owner: "{{ crear_usuario | default('ansibleap-usuario') }}"
+    group: "{{ crear_grupo | default('ansibleap-usuario') }}"
+    mode: '0755'
+    state: directory
+
+- name: Git checkout
+  ansible.builtin.git:
+    repo: "{{ git_url }}"
+    dest: "{{ dir_www }}"
+    force: true
+  become: true
+  become_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
