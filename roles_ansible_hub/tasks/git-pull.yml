@@ -12,7 +12,7 @@
   
 - name: Crear directorio temporal
   ansible.builtin.file:
-    path: "/tmp/{{ dir_www }}"
+    path: "/tmp{{ dir_www }}"
     mode: '0764'
     state: directory
     recursive: true
@@ -32,7 +32,7 @@
 - name: Git checkout
   ansible.builtin.git:
     repo: "{{ git_url }}"
-    dest: "/tmp/{{ dir_www }}"
+    dest: "/tmp{{ dir_www }}"
     force: true
   become: true
   become_user: "{{ crear_usuario | default('ansibleap-usuario') }}"
