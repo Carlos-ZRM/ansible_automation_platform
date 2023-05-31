@@ -36,3 +36,11 @@
     dest: "{{ dir_www }}"
     force: true
 
+- name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
+  ansible.posix.acl:
+    path: "{{ dir_www }}"
+    entity: "{{ ansible_user }}"
+    etype: user
+    permissions: rwx
+    state: present
+    recursive: true
