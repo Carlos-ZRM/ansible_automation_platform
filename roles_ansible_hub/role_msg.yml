@@ -1,0 +1,9 @@
+---
+
+- name: "Enviar mensaje a teams"
+  hosts: all
+  become: false
+  vars:
+    role_webhook_endpoint: "{{ role_webhook_endpoint }}"
+  roles:
+    - carlos_zrm.teams_msg.webhook

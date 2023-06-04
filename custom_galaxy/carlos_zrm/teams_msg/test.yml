@@ -1,0 +1,9 @@
+---
+
+- name: "Registrar sistema"
+  hosts: all
+  become: false
+  vars:
+    role_webhook_endpoint: https://2bcoreingram.webhook.office.com/webhookb2/fda34ac3-3db3-4276-ab58-ae1fd0c13069@01d2eed8-80db-42b5-9320-60a5f2cbb564/IncomingWebhook/562e623762d24b218f084630045d9c9f/cf2dd122-c417-4da4-bef5-8427df1f91e1
+  roles:
+    - webhook

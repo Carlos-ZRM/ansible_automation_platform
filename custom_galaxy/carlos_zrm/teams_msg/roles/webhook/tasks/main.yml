@@ -1,0 +1,26 @@
+---
+
+- name: Check if curl is installed
+  ansible.builtin.shell: rpm -q curl
+  register: curl_installed
+
+- name: Install if curl is not installed
+  ansible.builtin.dnf:
+    name: curl
+    state: present
+  when: curl_installed is not succeeded
+
+- name: Sending message to webhook
+  ansible.builtin.uri:
+    url: "{{ role_webhook_endpoint }}"
+    method: POST
+    #body: "{{ lookup('ansible.builtin.file', 'files/example.json') }}"
+    body: "{{ lookup('ansible.builtin.template', 'templates/cards.json.j2') }}"
+    body_format: json
+    headers:
+      Content-Type: application/json
+  register: post_webhook
+
+- name: Debug
+  ansible.builtin.debug:
+    msg: "{{ post_webhook }}"

@@ -1,0 +1,20 @@
+---
+# defaults file for webhook
+role_webhook_themeColor: "{{ role_webhook_themeColor_list['msg']['color'] }}"
+role_webhook_themeColor_list:
+  - name: "msg"
+    color: "0072C6" # msg
+  - name: "err"
+    color: "FF7C36z" # err
+  - name: "success"
+    color: "38FF57" # success
+  - name: "warning"
+    color: E8D43C" # warning
+  - name: "other"
+    color: "ED45F5" # other
+role_webhook_cardtype: OpenUri
+role_webhook_title: "Webhook Title"
+role_webhook_text: "Message from Ansible"
+role_webhook_uritext: "Get more info"
+role_webhook_uri: "https://docs.ansible.com/"
+
