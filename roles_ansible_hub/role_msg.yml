@@ -1,7 +1,7 @@
 ---
 
 - name: "Enviar mensaje a teams"
-  hosts: all
+  hosts: "{{ ansible_apply_group | default('all') }}"
   become: false
   vars:
     role_webhook_endpoint: "{{ role_webhook_endpoint }}"
