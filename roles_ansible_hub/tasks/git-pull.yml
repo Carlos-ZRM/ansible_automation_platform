@@ -41,7 +41,6 @@
   ansible.builtin.git:
     repo: "{{ git_url }}"
     dest: "{{ dir_www }}"
-    force: true
 
 - name: Eliminar archivos git
   ansible.builtin.file:

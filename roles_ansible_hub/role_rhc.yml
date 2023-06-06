@@ -14,8 +14,24 @@
 - name: "Registrar sistema"
   hosts: "{{ ansible_apply_group | default('all') }}"
   become: true
+  tags:
+    - play-rhc
   vars:
     rhc_release: "{{ ansible_distribution_version }}"
+    rhc_auth:
+      login:
+        username: "{{ rhn_username }}"
+        password: "{{ rhn_password }}"
+  roles:
+    - redhat.rhel_system_roles.rhc
+
+- name: "Eliminar sistema"
+  hosts: "{{ ansible_apply_group | default('all') }}"
+  become: true
+  tags:
+    - unplay-rhc
+  vars:
+    rhc_state: absent
     rhc_auth:
       login:
         username: "{{ rhn_username }}"
