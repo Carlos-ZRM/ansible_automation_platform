@@ -1,4 +1,10 @@
 ---
+- name: Instalar paquetes para git
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - git
 
 - name: Crear directorio temporal
   ansible.builtin.file:
@@ -9,7 +15,7 @@
     state: directory
 
 
-- name: "Agregar reglas de usuario acl al directorio {{ dir_www}}"
+- name: "Agregar reglas de usuario acl al directorio {{ dir_www }}"
   ansible.posix.acl:
     path: "{{ dir_www }}"
     entity: "{{ ansible_user }}"
