@@ -2,6 +2,7 @@
 - name: Verifica si el contenedor existe
   hosts: "{{ ansible_apply_group | default('all') }}"
   become: true
+  tags:
     - play-git
     - play-podman
   tasks:
@@ -11,7 +12,6 @@
     - name: Debug podman
       ansible.builtin.debug:
         msg: "{{ podman_ps }}"
-  tags:
       
 - name: Configurar Nodos
   hosts: "{{ ansible_apply_group | default('all') }}"
