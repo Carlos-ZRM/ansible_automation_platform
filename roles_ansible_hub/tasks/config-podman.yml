@@ -8,7 +8,7 @@
 
 - name: DNF update the system
   ansible.builtin.dnf:
-    name:  "*"
+    name:  podman
     state: latest
     update_only: true
 
