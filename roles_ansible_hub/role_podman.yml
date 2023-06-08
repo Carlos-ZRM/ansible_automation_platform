@@ -7,7 +7,7 @@
     - play-podman
   tasks:
     - name: Podman ps "{{ pod_name }}"
-      ansible.builtin.shell: "podman ps --all --filter name={{ pod_name }}"
+      ansible.builtin.shell: "podman ps --all --filter name={{ pod_name }} | grep {{ pod_name }}"
       register: podman_ps
     - name: Debug podman
       ansible.builtin.debug:
@@ -35,3 +35,14 @@
       block:
         - name: Podman run
           ansible.builtin.import_tasks: tasks/config-podman.yml
+
+- name: Eliminar el servicio
+  hosts: "{{ ansible_apply_group | default('all') }}"
+  become: true
+  tasks:
+    - name: Eliminar recursos
+      tags:
+        - delete-podman
+      block:
+        - name: Podman rm
+          ansible.builtin.import_tasks: tasks/delete-podman.yml

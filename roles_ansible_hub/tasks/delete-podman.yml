@@ -1,0 +1,5 @@
+---
+
+- name: Ejecutar servidor
+  become: true
+  ansible.builtin.shell: "podman --rm -f {{ pod_name }}"
