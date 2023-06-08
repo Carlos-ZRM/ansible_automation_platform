@@ -11,6 +11,13 @@
     name:  podman
     state: latest
     update_only: true
+- name: Verificar si el contenedor existe
+  become: true
+  ansible.builtin.shell: "podman container exists "
+  register: podman_status
+- name: Info del registro
+  ansible.builtin.debug:
+    msg: "{{ podman_status }}"
 
 - name: Ejecutar servidor
   become: true
