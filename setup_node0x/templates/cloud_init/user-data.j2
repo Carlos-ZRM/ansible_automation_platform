@@ -23,6 +23,7 @@ packages:
   - vim
 runcmd:
   - dnf update -y
+  - dnf install podman -y
   - dnf install cockpit -y
   - dnf install cockpit-podman -y
   - systemctl enable --now cockpit.socket ; systemctl start cockpit.service
