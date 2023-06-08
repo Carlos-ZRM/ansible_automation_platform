@@ -1,16 +1,4 @@
 ---
-- name: Instalar paquetes para nodo ejecutor ansible
-  ansible.builtin.dnf:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - podman
-
-- name: DNF update the system
-  ansible.builtin.dnf:
-    name:  podman
-    state: latest
-    update_only: true
 
 - name: Ejecutar servidor
   become: true

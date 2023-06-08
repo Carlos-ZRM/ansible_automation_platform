@@ -1,6 +1,6 @@
 ---
 
-- name: "Desplegar terraform apply {{ vm_name }}"
+- name: "Desplegar infraestructura apply {{ vm_name }}"
   cloud.terraform.terraform:
     project_path: '{{ terraform_project_dir }}/{{ vm_name }}'
     force_init: true

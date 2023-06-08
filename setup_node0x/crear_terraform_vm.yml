@@ -10,15 +10,15 @@
         - preconfig-terraform
         - play-terraform
       block:
-        - name: Configurar node terraform
+        - name: Configurar node iac
           ansible.builtin.import_tasks: tasks/preconfig-terraform.yml
 
-    - name: Crear templates de codigo para terraform
+    - name: Crear templates de codigo para iac
       tags:
         - template-terraform
         - play-terraform
       block:
-        - name: "Crear templates de MV para terraform"
+        - name: "Crear templates de MV para iac"
           ansible.builtin.include_tasks: tasks/template-terraform.yml
           vars:
             vm_name: "{{ vm_item }}"
@@ -31,7 +31,7 @@
         - apply-terraform
         - play-terraform
       block:
-        - name: Crear MV con terraform
+        - name: Crear MV con iac
           ansible.builtin.include_tasks: tasks/apply-terraform.yml
           vars:
             vm_name: "{{ vm_item }}"

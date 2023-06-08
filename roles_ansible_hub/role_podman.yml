@@ -1,11 +1,21 @@
 ---
-
+- name: Verifica si el contenedor existe
+  hosts: "{{ ansible_apply_group | default('all') }}"
+  become: true
+  tasks:
+    - name: Podman ps "{{ pod_name }}"
+      ansible.builtin.shell: "podman ps --all --filter name={{ pod_name }}"
+      register: podman_ps
+    - name: Debug podman
+      ansible.builtin.debug:
+        msg: "{{ podman_ps }}"
+      
 - name: Configurar Nodos
   hosts: "{{ ansible_apply_group | default('all') }}"
   gather_facts: true
   become: true
   tasks:
-    - name: Configurar ambiente del nodo
+    - name: Integracion continua del codigo
       tags:
         - play-git
       block:
@@ -16,7 +26,7 @@
   hosts: "{{ ansible_apply_group | default('all') }}"
   become: true
   tasks:
-    - name: Configurar ambiente del nodo
+    - name: Despliegue continuo del codigo
       tags:
         - play-podman
       block:

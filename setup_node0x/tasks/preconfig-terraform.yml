@@ -1,10 +1,10 @@
 ---
-- name: Crear grupo terraform
+- name: Crear grupo iac
   ansible.builtin.group:
     name: terraformgroup
     state: present
 
-- name: Crear usuario terraform
+- name: Crear usuario iac
   ansible.builtin.user:
     name: terraformuser
     group: terraformgroup
@@ -16,7 +16,7 @@
     state: present
     key: "{{ lookup('file', 'terraform_ed25519.pub') }}"
 
-- name: Crear directorio para entornos de terraform
+- name: Crear directorio para entornos de iac
   ansible.builtin.file:
     path: "{{ terraform_project_dir }}"
     state: directory
