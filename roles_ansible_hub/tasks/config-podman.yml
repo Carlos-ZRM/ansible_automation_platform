@@ -1,11 +1,5 @@
 ---
 
-- name: Verificar si el contenedor existe
-  become: true
-  ansible.builtin.shell: "podman container exists {{ pod_name }}"
-  register: podman_status
-
-
 - name: Crear servidor servidor
   become: true
   ansible.builtin.shell: "podman run --rm --name {{ pod_name }} -d -p 8080:8080 -v {{ dir_www }}/:{{ dir_www }}/:Z {{ pod_image }}"
