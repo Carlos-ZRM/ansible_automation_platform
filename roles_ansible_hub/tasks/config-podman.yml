@@ -13,8 +13,9 @@
     update_only: true
 - name: Verificar si el contenedor existe
   become: true
-  ansible.builtin.shell: "podman container exists "
+  ansible.builtin.shell: "podman container exists {{ pod_name }}"
   register: podman_status
+
 - name: Info del registro
   ansible.builtin.debug:
     msg: "{{ podman_status }}"
