@@ -1,6 +1,18 @@
 ---
+- name: Instalar paquetes para nodo ejecutor ansible
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - podman
 
-- name: Crear servidor servidor
+- name: DNF update the system
+  ansible.builtin.dnf:
+    name:  podman
+    state: latest
+    update_only: true
+
+- name: Ejecutar servidor
   become: true
   ansible.builtin.shell: "podman run --rm --name {{ pod_name }} -d -p 8080:8080 -v {{ dir_www }}/:{{ dir_www }}/:Z {{ pod_image }}"
 
