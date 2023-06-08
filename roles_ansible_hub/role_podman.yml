@@ -7,7 +7,7 @@
     - play-podman
   tasks:
     - name: Podman ps "{{ pod_name }}"
-      ansible.builtin.shell: "podman ps --all --filter name={{ pod_name }} | grep {{ pod_name }}"
+      ansible.builtin.shell: "podman ps --all --filter name={{ pod_name }}"
       register: podman_ps
     - name: Debug podman
       ansible.builtin.debug:
