@@ -1,20 +1,10 @@
 ---
-- name: Instalar paquetes para nodo ejecutor ansible
-  ansible.builtin.dnf:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - podman
 
-- name: DNF update the system
-  ansible.builtin.dnf:
-    name:  podman
-    state: latest
-    update_only: true
 - name: Verificar si el contenedor existe
   become: true
   ansible.builtin.shell: "podman container exists {{ pod_name }}"
   register: podman_status
+  ignore_errors: True
 
 - name: Info del registro
   ansible.builtin.debug:
