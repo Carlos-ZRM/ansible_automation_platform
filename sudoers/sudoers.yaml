@@ -1,0 +1,34 @@
+- name: Generate sudoers files
+  hosts: all
+  become: true
+  tasks:
+    - block:
+      - include_vars: sudoers_commands.yml
+      - name: Create users
+        user:
+          append:     yes
+          createhome: yes
+          name:       "{{ linux_user }}"
+          shell:      /bin/bash
+          state:      "present"
+      - name: Generate temp sudoers file (sudoers-app-config) settings file
+        template:
+          dest: "/tmp/90-sudoers-app-config"
+          owner: root
+          group: root
+          mode: "0440"
+          src: "templates/sudoers-app-config.j2"
+
+      - name: Check temp sudoers file (sudoers-app-config) settings file
+        shell: |
+          visudo -cf /tmp/90-sudoers-app-config && rm /tmp/90-sudoers-app-config
+        register: check_sudoers_register
+
+      - name: Generate checked sudoers file (sudoers-app-config) settings file
+        template:
+          dest: "/etc/sudoers.d/90-sudoers-app-config"
+          owner: root
+          group: root
+          mode: "0440"
+          src: "templates/sudoers-app-config.j2"
+        when: check_sudoers_register.stdout.find("parsed OK") != -1

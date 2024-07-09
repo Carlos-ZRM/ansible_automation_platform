@@ -1,0 +1,15 @@
+# Sudoers app config file
+#
+{% if suddoers_commands is defined %}
+
+{% for key, command in suddoers_commands.items() %}
+Cmnd_Alias {{ key }}={{ command }}
+{% endfor %}
+
+User_Alias APP_USER={{ linux_user }}
+
+{% for command_name in suddoers_commands %}
+APP_USER ALL=(ALL) NOPASSWD:{{ command_name }}
+{% endfor %}
+
+{% endif %}

@@ -1,0 +1,5 @@
+linux_user: xpkuser
+linux_group: xpkgroup
+suddoers_commands:
+  SYSCTL: /usr/bin/systemctl
+  DNF: /usr/bin/dnf
