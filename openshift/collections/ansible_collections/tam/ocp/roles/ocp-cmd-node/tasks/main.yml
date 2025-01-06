@@ -1,0 +1,11 @@
+---
+# tasks file for ocp-cmd-node
+
+- name: Getting node list
+  ansible.builtin.command: oc get nodes -o name
+  register: nodes
+- name: Run command in each node
+  ansible.builtin.shell: oc debug {{ item }} -- chroot /host {{ linux_cmd }}
+  loop: "{{ nodes.stdout_lines }}"
+
+

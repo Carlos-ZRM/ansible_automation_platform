@@ -1,0 +1,12 @@
+---
+- name: Playbook to run commands into OCP nodes
+  hosts: localhost
+  connection: local
+  collections:
+    - tam.ocp
+  tasks:
+    - name: Get timectl
+      ansible.builtin.import_role:
+        name: ocp-cmd-node
+      vars:
+        linux_cmd: timedatectl
