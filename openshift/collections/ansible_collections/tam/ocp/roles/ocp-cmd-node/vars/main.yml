@@ -1,4 +1,5 @@
 ---
 
 linux_cmd: ""
+kubeconfig: "~/.kube/config"
 # vars file for ocp-cmd-node

@@ -1,0 +1,47 @@
+---
+# tasks file for ocp-etcd-health
+- name: Search for running etcd pods
+  kubernetes.core.k8s_info:
+    kind: Pod
+    namespace: openshift-etcd
+    label_selectors:
+      - app = etcd
+    field_selectors:
+      - status.phase=Running
+  register: etcd_pods
+
+#- name: Print pods and status phase
+  #ansible.builtin.debug:
+    #msg: "{{ item.metadata.name }} {{ item.status.phase }}"
+  #loop: "{{ etcd_pods.resources }}"
+
+- name: Get member list
+  kubernetes.core.k8s_exec:
+    namespace: openshift-etcd
+    pod: "{{ etcd_pods.resources[0].metadata.name }}"
+    command: etcdctl member list -w json
+
+- name: Get endpoint health
+  kubernetes.core.k8s_exec:
+    namespace: openshift-etcd
+    pod: "{{ etcd_pods.resources[0].metadata.name }}"
+    command: etcdctl endpoint health --cluster -w json
+
+- name: Get endpoint status
+  kubernetes.core.k8s_exec:
+    namespace: openshift-etcd
+    pod: "{{ etcd_pods.resources[0].metadata.name }}"
+    command: etcdctl endpoint status --cluster -w json
+
+- name: Get alarm list
+  kubernetes.core.k8s_exec:
+    namespace: openshift-etcd
+    pod: "{{ etcd_pods.resources[0].metadata.name }}"
+    command: etcdctl alarm list
+
+- name: Defrag etcd
+  kubernetes.core.k8s_exec:
+    namespace: openshift-etcd
+    pod: "{{ etcd_pods.resources[0].metadata.name }}"
+    command: sh -c "unset ETCDCTL_ENDPOINTS && etcdctl --command-timeout=30s --endpoints=https://localhost:2379 defrag"
+  when: defrag is defined and defrag

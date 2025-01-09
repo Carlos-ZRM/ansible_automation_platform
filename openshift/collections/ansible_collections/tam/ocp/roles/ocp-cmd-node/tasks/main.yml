@@ -1,11 +1,22 @@
 ---
 # tasks file for ocp-cmd-node
-
 - name: Getting node list
-  ansible.builtin.command: oc get nodes -o name
+  ansible.builtin.shell: oc get nodes -o name
   register: nodes
+  environment:
+    KUBECONFIG: "{{ kubeconfig }}"
+
 - name: Run command in each node
-  ansible.builtin.shell: oc debug {{ item }} -- chroot /host {{ linux_cmd }}
+  ansible.builtin.shell: "oc debug {{ item }} -- chroot /host bash -c '{{ linux_cmd }}'"
   loop: "{{ nodes.stdout_lines }}"
+  environment:
+    KUBECONFIG: "{{ kubeconfig }}"
+  register: command
 
-
+# - name: Print results
+#   ansible.builtin.debug:
+#     msg: "Server: {{ item.item }} out {{ item.stdout }}"
+#     verbosity: 2
+#   loop: "{{ command.results }}"
+  
+    

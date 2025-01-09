@@ -1,2 +1,4 @@
 ---
 # defaults file for ocp-cmd-node
+
+#kubeconfig: "${HOME}/.kube/config"

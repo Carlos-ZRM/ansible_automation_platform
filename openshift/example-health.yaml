@@ -1,5 +1,4 @@
 ---
-
 - name: Playbook to run commands into OCP nodes
   hosts: localhost
   connection: local
@@ -9,10 +8,8 @@
   collections:
     - tam.ocp
   tasks:
-    - name: Get timectl
+    - name: Get Status etcd
       ansible.builtin.import_role:
-        name: ocp-cmd-node
+        name: ocp-etcd-health
       vars:
-        linux_cmd: timedatectl | grep zone
-        kubeconfig: ./sa-kubeconfig
-        #kubeconfig: ~/.kube/config
+        defrag: true
