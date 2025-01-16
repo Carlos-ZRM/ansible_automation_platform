@@ -1,5 +1,5 @@
 ---
-- name: Playbook to run commands into OCP nodes
+- name: Playbook to get ETCD health
   hosts: localhost
   connection: local
   # module_defaults:

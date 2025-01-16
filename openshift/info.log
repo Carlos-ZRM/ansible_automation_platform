@@ -1,0 +1,131 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            33:01:67:65:8a:3b:81:c3:7d:97:49:fd:f7:00:00:01:67:65:8a
+        Signature Algorithm: sha384WithRSAEncryption
+        Issuer: C=US, O=Microsoft Corporation, CN=Microsoft Azure RSA TLS Issuing CA 04
+        Validity
+            Not Before: Jan  8 22:54:03 2025 GMT
+            Not After : Jul  7 22:54:03 2025 GMT
+        Subject: C=US, ST=WA, L=Redmond, O=Microsoft Corporation, CN=*.apps.dmdbaego.eastus.aroapp.io
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c1:6d:1e:cc:1e:89:28:a7:51:5c:9e:28:89:60:
+                    a0:47:9c:41:2a:70:82:78:04:5f:4e:8d:b9:f4:00:
+                    32:cc:b6:ff:cd:10:33:e4:36:a2:40:3b:5f:88:38:
+                    4b:e9:86:9d:dd:31:d7:3d:1b:45:23:5a:90:c1:b4:
+                    10:b2:2e:57:15:1c:be:7f:41:a9:19:33:70:0b:29:
+                    0b:1b:fb:02:91:3f:52:ea:c9:cf:97:de:b7:e3:cb:
+                    73:4a:82:fe:3e:d9:e8:05:48:07:e9:b4:b5:f8:da:
+                    0d:ff:6e:df:e9:0d:7c:96:da:71:cf:75:b9:b8:96:
+                    1a:a4:ff:8e:1f:5a:cc:c4:a6:7a:ba:82:ae:0c:72:
+                    30:60:d9:0b:5d:bb:ee:4a:3c:0d:15:0e:b7:57:6e:
+                    fa:b9:91:36:4d:d3:c8:7e:a9:22:9e:b7:52:1a:22:
+                    ff:ed:7a:a0:36:e8:72:dd:98:38:fa:b7:50:1f:08:
+                    d8:71:b3:ec:82:3a:2a:dc:ed:e1:bd:45:b2:41:1b:
+                    02:3e:e2:22:6f:61:ed:e1:25:7a:cc:d5:50:7f:10:
+                    c6:31:4b:6a:7e:e3:96:bd:c3:df:4f:2c:0d:f0:0a:
+                    dc:2b:ad:f2:f6:1a:2c:84:3a:79:1d:7b:51:1a:8c:
+                    25:6c:0f:2b:81:8a:26:a5:bf:fc:70:d7:1f:98:f6:
+                    68:d5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : DD:DC:CA:34:95:D7:E1:16:05:E7:95:32:FA:C7:9F:F8:
+                                3D:1C:50:DF:DB:00:3A:14:12:76:0A:2C:AC:BB:C8:2A
+                    Timestamp : Jan  8 23:04:06.436 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:10:FB:B4:9F:A4:F3:60:F2:DE:35:E6:45:
+                                45:50:3B:3E:56:69:AA:55:A9:A7:50:39:CB:78:BB:8C:
+                                45:E5:0A:A9:02:21:00:D2:3F:A7:08:07:A0:C8:F5:15:
+                                08:BF:91:12:2E:53:59:61:B2:9A:A7:4E:32:09:99:44:
+                                68:1E:93:C0:D4:ED:D5
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 7D:59:1E:12:E1:78:2A:7B:1C:61:67:7C:5E:FD:F8:D0:
+                                87:5C:14:A0:4E:95:9E:B9:03:2F:D9:0E:8C:2E:79:B8
+                    Timestamp : Jan  8 23:04:06.362 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:21:00:9E:FA:A3:23:8D:1C:9D:B6:AC:E9:9B:
+                                64:F7:EC:5C:9C:DB:D0:83:23:EA:93:CC:9E:5D:81:97:
+                                1D:19:C8:0D:98:02:20:52:29:A4:BB:90:24:6B:92:22:
+                                1D:4A:13:F6:5B:F6:3C:53:7F:C6:95:4A:54:AE:C4:40:
+                                18:A5:08:4C:15:FE:61
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 1A:04:FF:49:D0:54:1D:40:AF:F6:A0:C3:BF:F1:D8:C4:
+                                67:2F:4E:EC:EE:23:40:68:98:6B:17:40:2E:DC:89:7D
+                    Timestamp : Jan  8 23:04:06.532 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:56:40:AF:45:2E:44:7F:EA:FA:D7:27:F1:
+                                DF:D3:EB:6A:C7:FA:3B:32:12:56:F1:B0:14:C1:9E:5A:
+                                E1:DA:BA:1D:02:20:17:22:CC:29:40:72:8C:1C:31:CF:
+                                67:7F:66:4C:05:F1:0E:EA:DB:8D:C3:FA:20:0A:03:63:
+                                A8:94:EE:14:F6:B7
+            Microsoft Application Policies Extension: 
+                0.0
+..+.......0
+..+.......
+            Microsoft certificate template: 
+                0-.%+.....7.........F...........]...0......d..-
+            Authority Information Access: 
+                CA Issuers - URI:http://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004%20-%20xsign.crt
+                OCSP - URI:http://oneocsp.microsoft.com/ocsp
+            X509v3 Subject Key Identifier: 
+                54:84:E5:8C:DE:08:F6:A4:B5:61:F4:BB:E2:16:46:4A:2F:44:CC:41
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:*.apps.dmdbaego.eastus.aroapp.io
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://www.microsoft.com/pkiops/crl/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004.crl
+            X509v3 Certificate Policies: 
+                Policy: 1.3.6.1.4.1.311.76.509.1.1
+                  CPS: http://www.microsoft.com/pkiops/Docs/Repository.htm
+                Policy: 2.23.140.1.2.2
+            X509v3 Authority Key Identifier: 
+                3B:70:D1:53:E9:76:25:9D:60:A8:CA:66:0F:C6:9B:AE:6F:54:16:6A
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication, TLS Web Server Authentication
+    Signature Algorithm: sha384WithRSAEncryption
+    Signature Value:
+        a2:46:9c:5d:06:8a:73:43:c0:ee:18:1f:3d:34:04:8d:34:4b:
+        42:92:74:4d:31:0b:ac:16:5b:a0:01:71:98:c4:82:9d:a2:ec:
+        4e:45:13:1a:19:40:c6:9b:7a:70:51:77:2f:23:f4:de:f9:da:
+        0e:1f:81:37:d9:b5:25:9c:88:77:5f:76:89:b3:68:61:5f:23:
+        12:5d:d9:6e:59:65:8e:26:a4:28:d3:80:64:d6:9a:3b:ad:4a:
+        30:51:ea:c3:5c:e2:cd:93:74:d2:61:54:fd:2e:71:13:4e:67:
+        29:43:1f:45:d9:c5:bf:c8:22:c3:f8:ea:56:e7:1d:b1:e4:29:
+        45:8e:b4:07:02:66:5f:01:c3:e4:a8:c2:0d:46:bf:c3:d4:f3:
+        be:41:60:18:78:f6:95:66:81:df:74:63:16:2c:ab:68:b8:b6:
+        5f:17:64:7d:04:29:02:23:bf:44:e6:31:4a:2e:cc:20:a3:b0:
+        9e:c8:7c:ae:b1:73:b8:16:04:9d:58:a8:dc:e4:f4:07:ff:b2:
+        06:e3:5e:ce:c7:59:f9:c7:63:af:69:e3:a7:91:de:0b:49:6c:
+        53:cc:c1:bc:60:ab:64:ee:8a:7d:16:62:5f:da:4c:a6:03:d5:
+        78:9b:86:b8:a5:ae:0d:01:9c:c5:18:0f:dc:b8:f9:61:9b:c5:
+        9d:1b:46:39:8a:84:3c:2a:1c:ff:d2:34:5f:dd:15:3f:29:bb:
+        5c:b1:12:00:e4:37:3a:ba:5b:f9:3d:bf:e7:d4:2b:ad:19:8d:
+        0b:41:51:aa:26:2a:0d:5e:d7:fd:c7:9b:82:62:b0:0b:ce:53:
+        92:40:f2:0f:a3:fb:41:b7:12:20:cd:cf:28:1e:9e:3c:5e:8a:
+        59:17:4e:e7:46:df:1a:c4:d2:26:33:77:9e:95:c2:e1:00:a5:
+        fa:8f:3c:3d:88:17:71:4b:aa:1e:61:c2:98:06:45:b8:be:7e:
+        05:65:07:86:7a:6b:c6:7b:fa:75:5b:8e:62:2b:c0:34:fa:c5:
+        d6:7c:1e:f4:f0:86:d2:62:9e:58:8f:78:49:cb:e1:30:d5:dd:
+        56:89:8a:4d:38:48:12:68:89:9d:e2:96:81:a8:d2:90:9d:69:
+        db:83:10:0f:20:0d:de:df:34:11:1d:58:84:32:ab:b8:03:2a:
+        49:88:90:3f:a8:27:f0:bf:4c:6f:0a:ee:d6:0f:e8:c1:87:3a:
+        bf:d8:4c:a5:da:ba:d6:1b:7d:20:88:70:73:23:36:bf:2e:7b:
+        b1:dc:e8:8c:56:ad:88:42:e7:29:dc:82:dc:dd:22:2f:dd:20:
+        c5:fc:8b:0f:7f:84:89:89:d3:89:6a:d1:c0:99:fb:2a:e5:32:
+        d5:bc:34:76:2c:10:18:e7

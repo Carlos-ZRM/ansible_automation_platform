@@ -1,0 +1,22 @@
+---
+# tasks file for ocp-oauth-provider
+# - name: Create httpaswd 
+#   htpasswd:
+#     path: ./temp_passwd 
+#     name: {{ item.username }}
+#     password: {{ item.passwd }}
+#     crypt_scheme: md5_crypt
+#   loop: "{{ oauth_htpasswd_users }}"
+
+- name: debug
+  ansible.builtin.debug:
+    msg: "{{ item.username }} {{ item.user_passwd }}"
+  loop: "{{ oauth_htpasswd_users }}"
+
+- name: Create httpaswd 
+  htpasswd:
+    path: ./temp_passwd 
+    name: xpk
+    password: xpkpasswd
+    #crypt_scheme: md5_crypt
+#   loop: "{{ oauth_htpasswd_users }}"

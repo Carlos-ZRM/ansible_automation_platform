@@ -1,0 +1,20 @@
+---
+- name: Playbook to configure htpass
+  hosts: localhost
+  connection: local
+  # module_defaults:
+  #   redhat.openshift.openshift:
+  #     kubeconfig: sa-kubeconfig
+  collections:
+    - tam.ocp
+  tasks:
+    - name: Get Status etcd
+      ansible.builtin.import_role:
+        name: ocp-oauth-provider
+      vars:
+        oauth_provider: htpasswd
+        oauth_htpasswd_provider_name: htpasswd-passwd
+        oauth_htpasswd_users:
+          - username: xpk
+            user_passwd: carlos123
+            #user_passwd: role 
