@@ -19,19 +19,19 @@
   kubernetes.core.k8s_exec:
     namespace: openshift-etcd
     pod: "{{ etcd_pods.resources[0].metadata.name }}"
-    command: etcdctl member list -w json
+    command: etcdctl member list -w table
 
 - name: Get endpoint health
   kubernetes.core.k8s_exec:
     namespace: openshift-etcd
     pod: "{{ etcd_pods.resources[0].metadata.name }}"
-    command: etcdctl endpoint health --cluster -w json
+    command: etcdctl endpoint health --cluster -w table
 
 - name: Get endpoint status
   kubernetes.core.k8s_exec:
     namespace: openshift-etcd
     pod: "{{ etcd_pods.resources[0].metadata.name }}"
-    command: etcdctl endpoint status --cluster -w json
+    command: etcdctl endpoint status --cluster -w table
 
 - name: Get alarm list
   kubernetes.core.k8s_exec:
